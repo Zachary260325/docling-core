@@ -70,10 +70,19 @@ class DocMeta(BaseMeta):
         alias=_KEY_DOC_ITEMS,
         min_length=1,
     )
-    headings: Optional[list[str]] = Field(
+    headings: Optional[list[int]] = Field(
         default=None,
         alias=_KEY_HEADINGS,
         min_length=1,
+    )
+    children: Optional[list[int]] = Field(
+        default=None,
+        alias="children",
+        min_length=1,
+    )
+    chunk_idx: Optional[int] = Field(
+        default=None,
+        alias="chunk_idx",
     )
     captions: Optional[list[str]] = Field(  # deprecated
         deprecated=True,
@@ -222,39 +231,96 @@ class HierarchicalChunker(BaseChunker):
             Iterator[Chunk]: iterator over extracted chunks
         """
         my_doc_ser = self.serializer_provider.get_serializer(doc=dl_doc)
-        heading_by_level: dict[LevelNumber, str] = {}
+        heading_by_level: dict[LevelNumber, int] = {}  # Track heading IDs instead of text
+        header_items: dict[int, DocItem] = {}  # Store header items by ID
+        header_children: dict[int, list[int]] = {}  # Track children for each header
+        header_parents: dict[int, list[int]] = {}  # Store parent headers for each header
         visited: set[str] = set()
         ser_res = create_ser_result()
         excluded_refs = my_doc_ser.get_excluded_refs(**kwargs)
-        for item, level in dl_doc.iterate_items(with_groups=True):
+        chunk_id = 0
+        
+        # First pass: collect all items and assign IDs
+        all_items = list(dl_doc.iterate_items(with_groups=True))
+        
+        for item, level in all_items:
             if item.self_ref in excluded_refs:
                 continue
+                
             if isinstance(item, (TitleItem, SectionHeaderItem)):
                 level = item.level if isinstance(item, SectionHeaderItem) else 0
-                heading_by_level[level] = item.text
-
-                # remove headings of higher level as they just went out of scope
-                keys_to_del = [k for k in heading_by_level if k > level]
+                
+                # Remove headings of same and higher level as they just went out of scope
+                keys_to_del = [k for k in heading_by_level if k >= level]
                 for k in keys_to_del:
                     heading_by_level.pop(k, None)
+                
+                # Store current heading hierarchy AFTER cleaning up levels
+                current_parents = [heading_by_level[k] for k in sorted(heading_by_level.keys())] if heading_by_level else []
+                
+                # Add this header as a child to the most recent (deepest) heading AFTER removing same/deeper levels
+                if heading_by_level:
+                    deepest_level = max(heading_by_level.keys())
+                    parent_id = heading_by_level[deepest_level]
+                    header_children[parent_id].append(chunk_id)
+                
+                # Store header item with its ID and parents
+                header_items[chunk_id] = item
+                header_children[chunk_id] = []
+                header_parents[chunk_id] = current_parents
+                heading_by_level[level] = chunk_id
+                
+                chunk_id += 1
                 continue
+                
             elif (
                 isinstance(item, (ListGroup, InlineGroup, DocItem))
                 and item.self_ref not in visited
             ):
                 ser_res = my_doc_ser.serialize(item=item, visited=visited)
-            else:
-                continue
-
-            if not ser_res.text:
-                continue
-            if doc_items := [u.item for u in ser_res.spans]:
+                
+                if not ser_res.text:
+                    continue
+                    
+                # Add this chunk as a child to the most recent (deepest) heading
+                if heading_by_level:
+                    deepest_level = max(heading_by_level.keys())
+                    parent_id = heading_by_level[deepest_level]
+                    header_children[parent_id].append(chunk_id)
+                
+                if doc_items := [u.item for u in ser_res.spans]:
+                    # Get current heading hierarchy as list of heading IDs
+                    heading_ids = [heading_by_level[k] for k in sorted(heading_by_level.keys())] if heading_by_level else None
+                    
+                    c = DocChunk(
+                        text=ser_res.text,
+                        meta=DocMeta(
+                            doc_items=doc_items,
+                            headings=heading_ids,
+                            chunk_idx=chunk_id,
+                            origin=dl_doc.origin,
+                        ),
+                    )
+                    yield c
+                
+                chunk_id += 1
+        
+        # Second pass: yield header chunks with their children
+        for header_id, header_item in header_items.items():
+            ser_res = my_doc_ser.serialize(item=header_item, visited=set())
+            
+            if ser_res.text:
+                # Use the stored parent headers
+                heading_ids = header_parents.get(header_id, []) or None
+                children = header_children.get(header_id, []) if header_children[header_id] else None
+                
                 c = DocChunk(
                     text=ser_res.text,
                     meta=DocMeta(
-                        doc_items=doc_items,
-                        headings=[heading_by_level[k] for k in sorted(heading_by_level)]
-                        or None,
+                        doc_items=[header_item],
+                        headings=heading_ids,
+                        children=children,
+                        chunk_idx=header_id,
                         origin=dl_doc.origin,
                     ),
                 )
