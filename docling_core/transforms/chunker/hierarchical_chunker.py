@@ -331,3 +331,148 @@ class HierarchicalChunker(BaseChunker):
                     ),
                 )
                 yield c
+
+
+class OriginalPreservingChunker:
+    """
+    Enhanced hierarchical chunker that preserves original markdown in chunk metadata.
+    
+    This chunker extends the standard docling hierarchical chunker to include
+    the original markdown text in each chunk's metadata, enabling exact pattern
+    matching while maintaining all the benefits of structured chunking.
+    """
+    
+    def __init__(self, original_markdown_text: Optional[str] = None, **chunker_kwargs):
+        """
+        Initialize the chunker with original markdown text.
+        
+        Args:
+            original_markdown_text: The original markdown text to preserve
+            **chunker_kwargs: Additional arguments for the base chunker
+        """
+        self.base_chunker = HierarchicalChunker(**chunker_kwargs)
+        self._original_markdown = original_markdown_text
+    
+    def chunk(self, dl_doc, **kwargs: Any) -> Iterator[DocChunk]:
+        """
+        Chunk the document while preserving original markdown in metadata.
+        
+        Args:
+            dl_doc: The DoclingDocument to chunk
+            **kwargs: Additional arguments for chunking
+            
+        Yields:
+            Chunks with original markdown preserved in metadata
+        """
+        from docling_core.transforms.serializer.common import create_ser_result
+        from docling_core.types.doc.document import TitleItem, SectionHeaderItem, ListGroup, InlineGroup, DocItem, LevelNumber
+        
+        my_doc_ser = self.base_chunker.serializer_provider.get_serializer(doc=dl_doc)
+        heading_by_level: dict[LevelNumber, int] = {}  # Track heading IDs instead of text
+        header_items: dict[int, DocItem] = {}  # Store header items by ID
+        header_children: dict[int, list[int]] = {}  # Track children for each header
+        header_parents: dict[int, list[int]] = {}  # Store parent headers for each header
+        visited: set[str] = set()
+        ser_res = create_ser_result()
+        excluded_refs = my_doc_ser.get_excluded_refs(**kwargs)
+        chunk_id = 0
+        
+        # First pass: collect all items and assign IDs
+        all_items = list(dl_doc.iterate_items(with_groups=True))
+        
+        for item, level in all_items:
+            if item.self_ref in excluded_refs:
+                continue
+                
+            if isinstance(item, (TitleItem, SectionHeaderItem)):
+                level = item.level if isinstance(item, SectionHeaderItem) else 0
+                
+                # Remove headings of same and higher level as they just went out of scope
+                keys_to_del = [k for k in heading_by_level if k >= level]
+                for k in keys_to_del:
+                    heading_by_level.pop(k, None)
+                
+                # Store current heading hierarchy AFTER cleaning up levels
+                current_parents = [heading_by_level[k] for k in sorted(heading_by_level.keys())] if heading_by_level else []
+                
+                # Add this header as a child to the most recent (deepest) heading AFTER removing same/deeper levels
+                if heading_by_level:
+                    deepest_level = max(heading_by_level.keys())
+                    parent_id = heading_by_level[deepest_level]
+                    header_children[parent_id].append(chunk_id)
+                
+                # Store header item with its ID and parents
+                header_items[chunk_id] = item
+                header_children[chunk_id] = []
+                header_parents[chunk_id] = current_parents
+                heading_by_level[level] = chunk_id
+                
+                chunk_id += 1
+                continue
+                
+            elif (
+                isinstance(item, (ListGroup, InlineGroup, DocItem))
+                and item.self_ref not in visited
+            ):
+                ser_res = my_doc_ser.serialize(item=item, visited=visited)
+                
+                if not ser_res.text:
+                    continue
+                    
+                # Add this chunk as a child to the most recent (deepest) heading
+                if heading_by_level:
+                    deepest_level = max(heading_by_level.keys())
+                    parent_id = heading_by_level[deepest_level]
+                    header_children[parent_id].append(chunk_id)
+                
+                if doc_items := [u.item for u in ser_res.spans]:
+                    # Get current heading hierarchy as list of heading IDs
+                    heading_ids = [heading_by_level[k] for k in sorted(heading_by_level.keys())] if heading_by_level else None
+                    
+                    # Create enhanced metadata with original markdown
+                    meta_kwargs = {
+                        'doc_items': doc_items,
+                        'headings': heading_ids,
+                        'chunk_idx': chunk_id,
+                        'origin': dl_doc.origin,
+                    }
+                    
+                    # Add original markdown if available
+                    if self._original_markdown is not None:
+                        meta_kwargs['original_markdown'] = self._original_markdown
+                    
+                    c = DocChunk(
+                        text=ser_res.text,
+                        meta=DocMeta(**meta_kwargs),
+                    )
+                    yield c
+                
+                chunk_id += 1
+        
+        # Second pass: yield header chunks with their children
+        for header_id, header_item in header_items.items():
+            ser_res = my_doc_ser.serialize(item=header_item, visited=set())
+            
+            if ser_res.text:
+                # Use the stored parent headers
+                heading_ids = header_parents.get(header_id, []) or None
+                children = header_children.get(header_id, []) if header_children[header_id] else None
+                
+                # Create enhanced metadata with original markdown
+                meta_kwargs = {
+                    'doc_items': [header_item],
+                    'headings': heading_ids,
+                    'children': children,
+                    'chunk_idx': header_id,
+                    'origin': dl_doc.origin,
+                }
+                
+                # Add original markdown if available
+                if self._original_markdown is not None:
+                    meta_kwargs['original_markdown'] = self._original_markdown
+                
+                c = DocChunk(
+                    text=ser_res.text,
+                    meta=DocMeta(**meta_kwargs),
+                )
+                yield c
