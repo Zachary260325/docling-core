@@ -49,6 +49,7 @@ _KEY_DOC_ITEMS = "doc_items"
 _KEY_HEADINGS = "headings"
 _KEY_CAPTIONS = "captions"
 _KEY_ORIGIN = "origin"
+_KEY_ORIGINAL_MARKDOWN = "original_markdown"
 
 _logger = logging.getLogger(__name__)
 
@@ -89,6 +90,11 @@ class DocMeta(BaseMeta):
         default=None,
         alias=_KEY_CAPTIONS,
         min_length=1,
+    )
+    original_markdown: Optional[str] = Field(
+        default=None,
+        alias=_KEY_ORIGINAL_MARKDOWN,
+        description="Original markdown text for this chunk (MD files only)"
     )
     origin: Optional[DocumentOrigin] = Field(
         default=None,
