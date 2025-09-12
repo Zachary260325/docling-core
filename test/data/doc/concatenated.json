@@ -1,6 +1,6 @@
 {
   "schema_name": "DoclingDocument",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "name": "2501.17887v1 + Untitled 1 + 2311.18481v1",
   "furniture": {
     "self_ref": "#/furniture",
@@ -12965,7 +12965,8 @@
             "text": "Asset",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -12984,7 +12985,8 @@
             "text": "Version",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13003,7 +13005,8 @@
             "text": "OCR",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13022,7 +13025,8 @@
             "text": "Layout",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13041,7 +13045,8 @@
             "text": "Tables",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13060,7 +13065,8 @@
             "text": "Docling",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13079,7 +13085,8 @@
             "text": "2.5.2",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13098,7 +13105,8 @@
             "text": "EasyOCR *",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13117,7 +13125,8 @@
             "text": "default",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13136,7 +13145,8 @@
             "text": "TableFormer (fast) *",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13155,7 +13165,8 @@
             "text": "Marker",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13174,7 +13185,8 @@
             "text": "0.3.10",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13193,7 +13205,8 @@
             "text": "Surya *",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13212,7 +13225,8 @@
             "text": "default",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13231,7 +13245,8 @@
             "text": "default",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13250,7 +13265,8 @@
             "text": "MinerU",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13269,7 +13285,8 @@
             "text": "0.9.3",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13288,7 +13305,8 @@
             "text": "auto *",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13307,7 +13325,8 @@
             "text": "doclayout yolo",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13326,7 +13345,8 @@
             "text": "rapid table *",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13345,7 +13365,8 @@
             "text": "Unstructured",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13364,7 +13385,8 @@
             "text": "0.16.5",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -13383,7 +13405,8 @@
             "text": "hi res with table structure",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           }
         ],
         "num_rows": 5,
@@ -13407,7 +13430,8 @@
               "text": "Asset",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13426,7 +13450,8 @@
               "text": "Version",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13445,7 +13470,8 @@
               "text": "OCR",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13464,7 +13490,8 @@
               "text": "Layout",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13483,7 +13510,8 @@
               "text": "Tables",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -13504,7 +13532,8 @@
               "text": "Docling",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13523,7 +13552,8 @@
               "text": "2.5.2",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13542,7 +13572,8 @@
               "text": "EasyOCR *",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13561,7 +13592,8 @@
               "text": "default",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13580,7 +13612,8 @@
               "text": "TableFormer (fast) *",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -13601,7 +13634,8 @@
               "text": "Marker",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13620,7 +13654,8 @@
               "text": "0.3.10",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13639,7 +13674,8 @@
               "text": "Surya *",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13658,7 +13694,8 @@
               "text": "default",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13677,7 +13714,8 @@
               "text": "default",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -13698,7 +13736,8 @@
               "text": "MinerU",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13717,7 +13756,8 @@
               "text": "0.9.3",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13736,7 +13776,8 @@
               "text": "auto *",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13755,7 +13796,8 @@
               "text": "doclayout yolo",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13774,7 +13816,8 @@
               "text": "rapid table *",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -13795,7 +13838,8 @@
               "text": "Unstructured",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13814,7 +13858,8 @@
               "text": "0.16.5",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -13826,7 +13871,8 @@
               "text": "",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13845,7 +13891,8 @@
               "text": "hi res with table structure",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -13864,7 +13911,8 @@
               "text": "hi res with table structure",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ]
         ]
@@ -13899,7 +13947,8 @@
             "text": "Product",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13911,7 +13960,8 @@
             "text": "Years",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13923,7 +13973,8 @@
             "text": "2016",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13935,7 +13986,8 @@
             "text": "2017",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13947,7 +13999,8 @@
             "text": "Apple",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13959,7 +14012,8 @@
             "text": "49823",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "row_span": 1,
@@ -13971,7 +14025,8 @@
             "text": "695944",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           }
         ],
         "num_rows": 3,
@@ -13988,7 +14043,8 @@
               "text": "Product",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14000,7 +14056,8 @@
               "text": "Years",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14012,7 +14069,8 @@
               "text": "Years",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14026,7 +14084,8 @@
               "text": "Product",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14038,7 +14097,8 @@
               "text": "2016",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14050,7 +14110,8 @@
               "text": "2017",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14064,7 +14125,8 @@
               "text": "Apple",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14076,7 +14138,8 @@
               "text": "49823",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "row_span": 1,
@@ -14088,7 +14151,8 @@
               "text": "695944",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ]
         ]
@@ -14141,7 +14205,8 @@
             "text": "Report",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14160,7 +14225,8 @@
             "text": "Question",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14179,7 +14245,8 @@
             "text": "Answer",
             "column_header": true,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14198,7 +14265,8 @@
             "text": "IBM 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14217,7 +14285,8 @@
             "text": "How many hours were spent on employee learning in 2021?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14236,7 +14305,8 @@
             "text": "22.5 million hours",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14255,7 +14325,8 @@
             "text": "IBM 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14274,7 +14345,8 @@
             "text": "What was the rate of fatalities in 2021?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14293,7 +14365,8 @@
             "text": "The rate of fatalities in 2021 was 0.0016.",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14312,7 +14385,8 @@
             "text": "IBM 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14331,7 +14405,8 @@
             "text": "How many full audits were con- ducted in 2022 in India?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14350,7 +14425,8 @@
             "text": "2",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14369,7 +14445,8 @@
             "text": "Starbucks 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14388,7 +14465,8 @@
             "text": "What is the percentage of women in the Board of Directors?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14407,7 +14485,8 @@
             "text": "25%",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14426,7 +14505,8 @@
             "text": "Starbucks 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14445,7 +14525,8 @@
             "text": "What was the total energy con- sumption in 2021?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14464,7 +14545,8 @@
             "text": "According to the table, the total energy consumption in 2021 was 2,491,543 MWh.",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14483,7 +14565,8 @@
             "text": "Starbucks 2022",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14502,7 +14585,8 @@
             "text": "How much packaging material was made from renewable mate- rials?",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           },
           {
             "bbox": {
@@ -14521,7 +14605,8 @@
             "text": "According to the given data, 31% of packaging materials were made from recycled or renewable materials in FY22.",
             "column_header": false,
             "row_header": false,
-            "row_section": false
+            "row_section": false,
+            "fillable": false
           }
         ],
         "num_rows": 7,
@@ -14545,7 +14630,8 @@
               "text": "Report",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14564,7 +14650,8 @@
               "text": "Question",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14583,7 +14670,8 @@
               "text": "Answer",
               "column_header": true,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14604,7 +14692,8 @@
               "text": "IBM 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14623,7 +14712,8 @@
               "text": "How many hours were spent on employee learning in 2021?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14642,7 +14732,8 @@
               "text": "22.5 million hours",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14663,7 +14754,8 @@
               "text": "IBM 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14682,7 +14774,8 @@
               "text": "What was the rate of fatalities in 2021?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14701,7 +14794,8 @@
               "text": "The rate of fatalities in 2021 was 0.0016.",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14722,7 +14816,8 @@
               "text": "IBM 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14741,7 +14836,8 @@
               "text": "How many full audits were con- ducted in 2022 in India?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14760,7 +14856,8 @@
               "text": "2",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14781,7 +14878,8 @@
               "text": "Starbucks 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14800,7 +14898,8 @@
               "text": "What is the percentage of women in the Board of Directors?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14819,7 +14918,8 @@
               "text": "25%",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14840,7 +14940,8 @@
               "text": "Starbucks 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14859,7 +14960,8 @@
               "text": "What was the total energy con- sumption in 2021?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14878,7 +14980,8 @@
               "text": "According to the table, the total energy consumption in 2021 was 2,491,543 MWh.",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ],
           [
@@ -14899,7 +15002,8 @@
               "text": "Starbucks 2022",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14918,7 +15022,8 @@
               "text": "How much packaging material was made from renewable mate- rials?",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             },
             {
               "bbox": {
@@ -14937,7 +15042,8 @@
               "text": "According to the given data, 31% of packaging materials were made from recycled or renewable materials in FY22.",
               "column_header": false,
               "row_header": false,
-              "row_section": false
+              "row_section": false,
+              "fillable": false
             }
           ]
         ]
