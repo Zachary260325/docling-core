@@ -2,7 +2,7 @@
 
 import logging
 import re
-from typing import ClassVar, Final, Literal, Optional
+from typing import ClassVar, Final, Literal, Optional, Union
 
 from pydantic import Field, StringConstraints, field_validator
 from typing_extensions import Annotated
@@ -40,10 +40,21 @@ class DocMeta(BaseMeta):
         alias=_KEY_DOC_ITEMS,
         min_length=1,
     )
-    headings: Optional[list[str]] = Field(
+    headings: Optional[list[Union[str, int]]] = Field(
         default=None,
         alias=_KEY_HEADINGS,
         min_length=1,
+    )
+    # new: children indices for hierarchical layout
+    children: Optional[list[Union[str, int]]] = Field(
+        default=None,
+        alias="children",
+        min_length=1,
+    )
+    # new: index of this chunk in the sequence
+    chunk_idx: Optional[Union[str, int]] = Field(
+        default=None,
+        alias="chunk_idx",
     )
     captions: Optional[list[str]] = Field(  # deprecated
         deprecated=True,
